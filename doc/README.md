@@ -13,6 +13,13 @@ In-tree documentation for JBookTrader, organized by audience:
   market depth becomes a `MarketSnapshot`, how strategies are
   discovered and driven, how the optimizer parallelizes work, the
   threading model, and a complete source map.
+- **[CODE_REVIEW.md](CODE_REVIEW.md)** — Bug and edge-case audit of the
+  `2026.1-SNAPSHOT` source tree, organized by severity (critical /
+  security / thread safety / resources / numeric / etc.). Each finding
+  cites file:line.
+- **[TESTING.md](TESTING.md)** — Inventory of existing unit tests and a
+  paranoid, prioritized list of proposed new tests, with cross-refs to
+  the bugs in `CODE_REVIEW.md`.
 
 Screenshots live under `images/` and are referenced from the documents.
 
