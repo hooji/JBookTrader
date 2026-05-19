@@ -1,14 +1,14 @@
 # Documentation-screenshot shim
 
 This directory contains the temporary fixture used to drive UI screenshots
-for the documents under `.doc/`. It is **not** part of the runtime
+for the documents under `doc/`. It is **not** part of the runtime
 JBookTrader application.
 
 ## `QuickTestStrategy.java`
 
 A throw-away strategy with very loose entry/exit thresholds that produces
 trades on the bundled `marketData/ES.txt` data file. The screenshots in
-`.doc/images/performance-chart.png` and `.doc/images/backtest-results.png`
+`doc/images/performance-chart.png` and `doc/images/backtest-results.png`
 were taken with this strategy temporarily copied to
 `src/main/java/com/jbooktrader/strategy/QuickTestStrategy.java`.
 
