@@ -20,6 +20,9 @@ In-tree documentation for JBookTrader, organized by audience:
 - **[TESTING.md](TESTING.md)** — Inventory of existing unit tests and a
   paranoid, prioritized list of proposed new tests, with cross-refs to
   the bugs in `CODE_REVIEW.md`.
+- **[TEST_RESULTS.md](TEST_RESULTS.md)** — Current `mvn test` status
+  (281 tests, 37 failing). Every failing test maps to a specific bug
+  in `CODE_REVIEW.md`; the table shows which test surfaces which bug.
 
 Screenshots live under `images/` and are referenced from the documents.
 
