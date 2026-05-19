@@ -18,9 +18,9 @@ Screenshots live under `images/` and are referenced from the documents.
 
 The `.docx` files alongside these Markdown documents
 (`JBookTrader.UserGuide.docx`, `TWSConfigurationForJBookTader.docx`) are
-the original Google-Docs–exported manuals; they are out of date as of
-the `2026.1` release. Where this in-tree documentation disagrees with
-them, prefer this one.
+the original Google-Docs–exported manuals; they predate several
+features documented here. Where this in-tree documentation disagrees
+with them, prefer this one.
 
 If you regenerate the screenshots, see [`/.shim/README.md`](../.shim/README.md)
 for the small fixture used to drive a backtest that actually trades on
