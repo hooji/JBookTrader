@@ -13,6 +13,9 @@ build.xml
 
 # run artifacts
 /reports
+# Stray report at repo root when Dispatcher isn't fully initialized
+# (happens with some unit-test entry points).
+/null*Report.htm
 
 # Log file
 *.log
