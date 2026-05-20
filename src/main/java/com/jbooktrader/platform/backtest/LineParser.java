@@ -82,6 +82,12 @@ public class LineParser {
         double bid = Double.parseDouble(tokens[3]);
         double ask = Double.parseDouble(tokens[4]);
 
+        if (bid > ask) {
+            String msg = "Bid (" + bid + ") cannot exceed ask (" + ask + ")";
+            msg += "\n" + line;
+            throw new RuntimeException(msg);
+        }
+
         int volume = Integer.parseInt(tokens[5]);
         if (volume < 0) {
             String msg = "Volume must be a positive integer";

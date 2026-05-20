@@ -174,6 +174,76 @@ public class HolidaySchedule {
         holidays.put("12/24/2020", "Early Close");
         holidays.put("12/25/2020", "Christmas Day");
 
+        // 2021 holidays and early closes
+        holidays.put("01/01/2021", "New Year's Day");
+        holidays.put("01/18/2021", "Martin Luther King, Jr. Day");
+        holidays.put("02/15/2021", "Washington's Birthday (Presidents' Day)");
+        holidays.put("04/02/2021", "Good Friday");
+        holidays.put("05/31/2021", "Memorial Day");
+        holidays.put("07/05/2021", "Independence Day");
+        holidays.put("09/06/2021", "Labor Day");
+        holidays.put("11/25/2021", "Thanksgiving Day");
+        holidays.put("11/26/2021", "Early Close");
+        holidays.put("12/24/2021", "Christmas Day");
+
+        // 2022 holidays and early closes
+        holidays.put("01/17/2022", "Martin Luther King, Jr. Day");
+        holidays.put("02/21/2022", "Washington's Birthday (Presidents' Day)");
+        holidays.put("04/15/2022", "Good Friday");
+        holidays.put("05/30/2022", "Memorial Day");
+        holidays.put("06/20/2022", "Juneteenth National Independence Day");
+        holidays.put("07/04/2022", "Independence Day");
+        holidays.put("09/05/2022", "Labor Day");
+        holidays.put("11/24/2022", "Thanksgiving Day");
+        holidays.put("11/25/2022", "Early Close");
+        holidays.put("12/23/2022", "Early Close");
+        holidays.put("12/26/2022", "Christmas Day");
+
+        // 2023 holidays and early closes
+        holidays.put("01/02/2023", "New Year's Day");
+        holidays.put("01/16/2023", "Martin Luther King, Jr. Day");
+        holidays.put("02/20/2023", "Washington's Birthday (Presidents' Day)");
+        holidays.put("04/07/2023", "Good Friday");
+        holidays.put("05/29/2023", "Memorial Day");
+        holidays.put("06/19/2023", "Juneteenth National Independence Day");
+        holidays.put("07/03/2023", "Early Close");
+        holidays.put("07/04/2023", "Independence Day");
+        holidays.put("09/04/2023", "Labor Day");
+        holidays.put("11/23/2023", "Thanksgiving Day");
+        holidays.put("11/24/2023", "Early Close");
+        holidays.put("12/22/2023", "Early Close");
+        holidays.put("12/25/2023", "Christmas Day");
+
+        // 2024 holidays and early closes
+        holidays.put("01/01/2024", "New Year's Day");
+        holidays.put("01/15/2024", "Martin Luther King, Jr. Day");
+        holidays.put("02/19/2024", "Washington's Birthday (Presidents' Day)");
+        holidays.put("03/29/2024", "Good Friday");
+        holidays.put("05/27/2024", "Memorial Day");
+        holidays.put("06/19/2024", "Juneteenth National Independence Day");
+        holidays.put("07/03/2024", "Early Close");
+        holidays.put("07/04/2024", "Independence Day");
+        holidays.put("09/02/2024", "Labor Day");
+        holidays.put("11/28/2024", "Thanksgiving Day");
+        holidays.put("11/29/2024", "Early Close");
+        holidays.put("12/24/2024", "Early Close");
+        holidays.put("12/25/2024", "Christmas Day");
+
+        // 2025 holidays and early closes
+        holidays.put("01/01/2025", "New Year's Day");
+        holidays.put("01/20/2025", "Martin Luther King, Jr. Day");
+        holidays.put("02/17/2025", "Washington's Birthday (Presidents' Day)");
+        holidays.put("04/18/2025", "Good Friday");
+        holidays.put("05/26/2025", "Memorial Day");
+        holidays.put("06/19/2025", "Juneteenth National Independence Day");
+        holidays.put("07/03/2025", "Early Close");
+        holidays.put("07/04/2025", "Independence Day");
+        holidays.put("09/01/2025", "Labor Day");
+        holidays.put("11/27/2025", "Thanksgiving Day");
+        holidays.put("11/28/2025", "Early Close");
+        holidays.put("12/24/2025", "Early Close");
+        holidays.put("12/25/2025", "Christmas Day");
+
         // 2026 holidays and early closes
         holidays.put("01/01/2026", "New Year's Day");
         holidays.put("01/19/2026", "Martin Luther King, Jr. Day");

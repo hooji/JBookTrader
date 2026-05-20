@@ -35,6 +35,9 @@ public class StrategyParam {
     }
 
     public void setMin(int min) {
+        if (min > this.max) {
+            throw new IllegalArgumentException("min (" + min + ") cannot exceed max (" + this.max + ")");
+        }
         this.min = min;
     }
 
@@ -43,11 +46,14 @@ public class StrategyParam {
     }
 
     public void setMax(int max) {
+        if (max < this.min) {
+            throw new IllegalArgumentException("max (" + max + ") cannot be less than min (" + this.min + ")");
+        }
         this.max = max;
     }
 
     public double getMiddle() {
-        return (min + max) / 2d;
+        return ((double) min + (double) max) / 2.0;
     }
 
     public int getRange() {
@@ -59,6 +65,9 @@ public class StrategyParam {
     }
 
     public void setStep(int step) {
+        if (step <= 0) {
+            throw new IllegalArgumentException("step must be positive, got " + step);
+        }
         this.step = step;
     }
 

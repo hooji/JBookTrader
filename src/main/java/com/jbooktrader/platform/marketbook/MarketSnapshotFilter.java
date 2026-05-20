@@ -23,7 +23,7 @@ public class MarketSnapshotFilter {
         calendar.set(Calendar.HOUR_OF_DAY, 23);
         calendar.set(Calendar.MINUTE, 59);
         calendar.set(Calendar.SECOND, 59);
-        calendar.set(Calendar.MILLISECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 999);
         toDate = calendar.getTimeInMillis();
         if (fromDate > toDate) {
             throw new RuntimeException("The \"from\" date must be before or the same as the \"to\" date.");
