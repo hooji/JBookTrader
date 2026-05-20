@@ -17,13 +17,13 @@ public class Trade {
     public void updateTotalBought(int quantityBought, double averagePrice, double slippageBoughtPoints) {
         this.quantityBought += quantityBought;
         totalBought += quantityBought * averagePrice;
-        this.slippageBoughtPoints = slippageBoughtPoints;
+        this.slippageBoughtPoints += slippageBoughtPoints;
     }
 
     public void updateTotalSold(int quantitySold, double averagePrice, double slippageSoldPoints) {
         this.quantitySold += quantitySold;
         totalSold += quantitySold * averagePrice;
-        this.slippageSoldPoints = slippageSoldPoints;
+        this.slippageSoldPoints += slippageSoldPoints;
     }
 
     public double getSlippagePoints() {
@@ -51,11 +51,11 @@ public class Trade {
     }
 
     public double getAverageBoughtPrice() {
-        return totalBought / quantityBought;
+        return quantityBought == 0 ? 0 : totalBought / quantityBought;
     }
 
     public double getAverageSoldPrice() {
-        return totalSold / quantitySold;
+        return quantitySold == 0 ? 0 : totalSold / quantitySold;
     }
 
     public long getTimeInMarket() {

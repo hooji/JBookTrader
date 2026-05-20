@@ -50,6 +50,9 @@ public class MarketDepthModel {
     }
 
     public boolean hasValidBidStructure() {
+        if (items.isEmpty()) {
+            return false;
+        }
         double lastPrice = Double.POSITIVE_INFINITY;
         for (MarketDepthItem item : items) {
             double price = item.getPrice();
@@ -65,6 +68,9 @@ public class MarketDepthModel {
     }
 
     public boolean hasValidAskStructure() {
+        if (items.isEmpty()) {
+            return false;
+        }
         double lastPrice = 0;
         for (MarketDepthItem item : items) {
             double price = item.getPrice();

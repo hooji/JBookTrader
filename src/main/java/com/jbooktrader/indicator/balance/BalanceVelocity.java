@@ -29,5 +29,6 @@ public class BalanceVelocity extends Indicator {
     @Override
     public void reset() {
         fast = slow = 0;
+        value = 0;
     }
 }

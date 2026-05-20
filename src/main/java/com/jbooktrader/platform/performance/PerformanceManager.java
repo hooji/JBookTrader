@@ -167,6 +167,12 @@ public class PerformanceManager {
             trade.setEntryTime(snapshotTime);
         }
 
+        if (trade == null) {
+            // No trade in progress (e.g., recovery 0->0 call). Nothing to update.
+            previousPosition = position;
+            return;
+        }
+
         if (position == 0) {
             trade.setExitTime(snapshotTime);
         }
