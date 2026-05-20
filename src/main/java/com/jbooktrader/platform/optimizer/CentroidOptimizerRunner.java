@@ -57,8 +57,16 @@ public class CentroidOptimizerRunner extends OptimizerRunner {
                 }
             }
 
-            for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
-                centroid[paramIndex] /= sumOfPerformance;
+            if (sumOfPerformance == 0) {
+                // No usable signal (top cutoff is empty, or every result has
+                // performance <= 0). Fall back to the empty-results path.
+                for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
+                    centroid[paramIndex] = startingParams.get(paramIndex).getMiddle();
+                }
+            } else {
+                for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
+                    centroid[paramIndex] /= sumOfPerformance;
+                }
             }
 
         }

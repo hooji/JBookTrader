@@ -25,6 +25,7 @@ public class BackTestFileReader {
     private final MarketSnapshotFilter filter;
     private final String fileName;
     private final long fileSize;
+    private final long fileLastModified;
 
     public BackTestFileReader(String fileName, MarketSnapshotFilter filter) {
         this.fileName = fileName;
@@ -35,11 +36,12 @@ public class BackTestFileReader {
             throw new RuntimeException("Could not find file: " + fileName);
         }
         fileSize = file.length();
+        fileLastModified = file.lastModified();
     }
 
 
     public List<MarketSnapshot> load(ProgressListener progressListener) {
-        String key = fileName + "," + fileSize;
+        String key = fileName + "," + fileSize + "," + fileLastModified;
         if (filter != null) {
             key += ", " + filter;
         }

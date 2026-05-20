@@ -15,6 +15,9 @@ public class ResultComparator implements Comparator<OptimizationResult> {
     }
 
     public int compare(OptimizationResult r1, OptimizationResult r2) {
+        if (performanceMetric.isLowerBetter()) {
+            return Double.compare(r1.get(performanceMetric), r2.get(performanceMetric));
+        }
         return Double.compare(r2.get(performanceMetric), r1.get(performanceMetric));
     }
 }

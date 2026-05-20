@@ -33,36 +33,36 @@ public class GradientOptimizerRunner extends OptimizerRunner {
             for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
                 centroid[paramIndex] = startingParams.get(paramIndex).getMiddle();
             }
-        } else {
-            double sumOfPerformance = 0;
+            return centroid;
+        }
 
+        double sumOfPerformance = 0;
 
-            double min, max;
-            min = max = optimizationResults.get(0).get(performanceMetric);
-            for (OptimizationResult optimizationResult : optimizationResults) {
-                double performanceValue = optimizationResult.get(performanceMetric);
-                if (performanceValue > max) {
-                    max = performanceValue;
-                } else if (performanceValue < min) {
-                    min = performanceValue;
-                }
+        double min, max;
+        min = max = optimizationResults.get(0).get(performanceMetric);
+        for (OptimizationResult optimizationResult : optimizationResults) {
+            double performanceValue = optimizationResult.get(performanceMetric);
+            if (performanceValue > max) {
+                max = performanceValue;
+            } else if (performanceValue < min) {
+                min = performanceValue;
             }
+        }
 
-            if (min < 0) {
-                min = 0;
-            }
+        if (min < 0) {
+            min = 0;
+        }
 
-            double range = max - min;
-            double beta = 2;
+        double range = max - min;
+        double beta = 2;
 
-
+        if (range > 0) {
             for (OptimizationResult optimizationResult : optimizationResults) {
 
                 StrategyParams params = optimizationResult.getParams();
                 double performanceValue = optimizationResult.get(performanceMetric);
                 if (performanceValue > 0 && performanceValue > min) {
                     double x = (performanceValue - min) / range;
-                    //System.out.println(x);
                     performanceValue = 1 / (1 + Math.pow(x / (1 - x), -beta));
                     sumOfPerformance += performanceValue;
 
@@ -72,11 +72,18 @@ public class GradientOptimizerRunner extends OptimizerRunner {
                     }
                 }
             }
+        }
 
+        if (sumOfPerformance == 0) {
+            // No usable signal (uniform metric, or every result <= min).
+            // Fall back to the empty-results path.
+            for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
+                centroid[paramIndex] = startingParams.get(paramIndex).getMiddle();
+            }
+        } else {
             for (int paramIndex = 0; paramIndex < dimensions; paramIndex++) {
                 centroid[paramIndex] /= sumOfPerformance;
             }
-
         }
 
         return centroid;

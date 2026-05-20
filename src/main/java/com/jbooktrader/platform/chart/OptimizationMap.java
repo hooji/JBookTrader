@@ -49,6 +49,9 @@ public class OptimizationMap {
     private ChartPanel chartPanel;
 
     public OptimizationMap(OptimizerDialog optimizerDialog, List<OptimizationResult> optimizationResults) {
+        if (optimizationResults.isEmpty()) {
+            throw new RuntimeException("Cannot create optimization map: no results to plot.");
+        }
         prefs = PreferencesHolder.getInstance();
         this.optimizerDialog = optimizerDialog;
         this.optimizationResults = new ArrayList<>(optimizationResults);

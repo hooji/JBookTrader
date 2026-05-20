@@ -88,7 +88,7 @@ public class PerformanceChartData {
             strategyPnLbar = new Bar(barTime, value);
         }
 
-        if (barTime > strategyPnLbar.getTime()) {
+        if (barTime != strategyPnLbar.getTime()) {
             Date date = new Date(strategyPnLbar.getTime());
             OHLCDataItem item = new OHLCDataItem(date, strategyPnLbar.getOpen(), strategyPnLbar.getHigh(), strategyPnLbar.getLow(), strategyPnLbar.getClose(), 0);
             strategyPnL.add(item);
@@ -115,7 +115,7 @@ public class PerformanceChartData {
             portfolioPnLbar = new Bar(barTime, value);
         }
 
-        if (barTime > portfolioPnLbar.getTime()) {
+        if (barTime != portfolioPnLbar.getTime()) {
             Date date = new Date(portfolioPnLbar.getTime());
             OHLCDataItem item = new OHLCDataItem(date, portfolioPnLbar.getOpen(), portfolioPnLbar.getHigh(), portfolioPnLbar.getLow(), portfolioPnLbar.getClose(), 0);
             portfolioPnL.add(item);
@@ -139,7 +139,7 @@ public class PerformanceChartData {
 
             Bar indicatorBar = indicatorBars.computeIfAbsent(indicator.getKey(), k -> new Bar(barTime, value));
 
-            if (barTime > indicatorBar.getTime()) {
+            if (barTime != indicatorBar.getTime()) {
                 Date date = new Date(indicatorBar.getTime());
                 OHLCDataItem item = new OHLCDataItem(date, indicatorBar.getOpen(), indicatorBar.getHigh(), indicatorBar.getLow(), indicatorBar.getClose(), 0);
                 List<OHLCDataItem> ind = indicators.get(indicator.getKey());
@@ -168,7 +168,7 @@ public class PerformanceChartData {
             priceBar = new Bar(barTime, price);
         }
 
-        if (barTime > priceBar.getTime()) {
+        if (barTime != priceBar.getTime()) {
             Date date = new Date(priceBar.getTime());
             OHLCDataItem item = new OHLCDataItem(date, priceBar.getOpen(), priceBar.getHigh(), priceBar.getLow(), priceBar.getClose(), 0);
             prices.add(item);
