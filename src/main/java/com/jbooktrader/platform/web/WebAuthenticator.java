@@ -11,16 +11,18 @@ import static com.jbooktrader.platform.preferences.JBTPreferences.WebAccessUser;
  * @author Eugene Kononov
  */
 public class WebAuthenticator extends BasicAuthenticator {
-    private final String authPair;
+    private final String expectedUser;
+    private final String expectedPassword;
 
     public WebAuthenticator() {
         super(JBookTrader.APP_NAME);
         PreferencesHolder prefs = PreferencesHolder.getInstance();
-        authPair = prefs.get(WebAccessUser) + "/" + prefs.get(WebAccessPassword);
+        expectedUser = prefs.get(WebAccessUser);
+        expectedPassword = prefs.get(WebAccessPassword);
     }
 
     @Override
     public boolean checkCredentials(String userName, String password) {
-        return authPair.equals(userName + "/" + password);
+        return expectedUser.equals(userName) && expectedPassword.equals(password);
     }
 }

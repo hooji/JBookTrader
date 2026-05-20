@@ -2,13 +2,14 @@ package com.jbooktrader.platform.ibhandler;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Eugene Kononov
  */
 class OrderIdFactory {
     private final Semaphore orderIdSemaphore;
-    private int nextOrderID;
+    private final AtomicInteger nextOrderID = new AtomicInteger();
 
     OrderIdFactory() {
         orderIdSemaphore = new Semaphore(0);
@@ -24,16 +25,16 @@ class OrderIdFactory {
 
 
     int getNextOrderID() {
-        return nextOrderID;
+        return nextOrderID.get();
     }
 
     void setNextOrderID(int nextOrderID) {
-        this.nextOrderID = nextOrderID;
+        this.nextOrderID.set(nextOrderID);
         orderIdSemaphore.release();
     }
 
     void incrementOrderID() {
-        nextOrderID++;
+        nextOrderID.incrementAndGet();
     }
 
 }

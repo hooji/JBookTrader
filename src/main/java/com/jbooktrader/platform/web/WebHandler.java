@@ -11,6 +11,8 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -83,7 +85,13 @@ public class WebHandler implements HttpHandler {
 
             out = response.toString().getBytes();
         } else {
-            String path = (resource.endsWith("htm") ? reportsDir : resourcesDir) + resource;
+            String baseDir = resource.endsWith("htm") ? reportsDir : resourcesDir;
+            Path base = Paths.get(baseDir).toAbsolutePath().normalize();
+            Path requested = Paths.get(baseDir + resource).toAbsolutePath().normalize();
+            if (!requested.startsWith(base)) {
+                throw new FileNotFoundException("Resource not found: " + resource);
+            }
+            String path = requested.toString();
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(path));
             out = new byte[(int) new File(path).length()];
             bis.read(out);
